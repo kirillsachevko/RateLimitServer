@@ -1,13 +1,11 @@
 package com.epam.jmp.redislab.configuration.ratelimit;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.concurrent.TimeUnit;
 
 public class RateLimitRule implements Serializable {
 
@@ -19,14 +17,14 @@ public class RateLimitRule implements Serializable {
 
     private final Integer allowedNumberOfRequests;
 
-    private final RateLimitTimeInterval timeInterval;
+    private final TimeInterval timeInterval;
 
     @JsonCreator
     public RateLimitRule(@JsonProperty("accountId") Optional<String> accountId,
                          @JsonProperty("clientIp") Optional<String> clientIp,
                          @JsonProperty("requestType") Optional<String> requestType,
                          @JsonProperty("allowedNumberOfRequests") Integer allowedNumberOfRequests,
-                         @JsonProperty("timeInterval") RateLimitTimeInterval timeInterval) {
+                         @JsonProperty("timeInterval") TimeInterval timeInterval) {
         this.accountId = accountId;
         this.clientIp = clientIp;
         this.requestType = requestType;
