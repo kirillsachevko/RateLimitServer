@@ -52,7 +52,7 @@ public class JedisRateLimitService implements RateLimitService {
         return shouldLimit.get();
     }
 
-    public Bucket resolveBucket(Bandwidth bandwidth, RateLimitRuleMatcherImpl matcher) {
+    private Bucket resolveBucket(Bandwidth bandwidth, RateLimitRuleMatcherImpl matcher) {
         Supplier<BucketConfiguration> configSupplier = addRateLimiterBucketToCache(bandwidth);
         return proxyManager.builder().build(matcher.name().getBytes(StandardCharsets.UTF_8), configSupplier);
     }
