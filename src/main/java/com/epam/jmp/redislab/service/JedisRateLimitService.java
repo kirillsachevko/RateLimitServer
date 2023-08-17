@@ -7,6 +7,7 @@ import io.github.bucket4j.Bucket;
 import io.github.bucket4j.BucketConfiguration;
 import io.github.bucket4j.redis.jedis.cas.JedisBasedProxyManager;
 import org.springframework.context.annotation.DependsOn;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import java.nio.charset.StandardCharsets;
@@ -18,6 +19,7 @@ import java.util.function.Supplier;
 
 @Component
 @DependsOn({"rateLimitRules"})
+@Profile("LOCAL")
 public class JedisRateLimitService implements RateLimitService {
 
     private final Set<RateLimitRule> rateLimitRules;

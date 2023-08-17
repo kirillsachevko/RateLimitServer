@@ -5,14 +5,14 @@ import io.github.bucket4j.redis.jedis.cas.JedisBasedProxyManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
-import redis.clients.jedis.*;
+import redis.clients.jedis.HostAndPort;
+import redis.clients.jedis.JedisPool;
+import redis.clients.jedis.JedisPoolConfig;
 
 import java.time.Duration;
-import java.util.HashSet;
-import java.util.Set;
 
 @Configuration
-//@Profile("LOCAL")
+@Profile("LOCAL")
 public class JedisLocalConfiguration {
 
     private static final HostAndPort HOST_AND_PORT = new HostAndPort("localhost", 6379);

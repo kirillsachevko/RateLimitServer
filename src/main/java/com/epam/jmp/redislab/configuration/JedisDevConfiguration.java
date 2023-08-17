@@ -9,8 +9,8 @@ import redis.clients.jedis.JedisCluster;
 import java.util.HashSet;
 import java.util.Set;
 
-//@Configuration
-//@Profile("DEV")
+@Configuration
+@Profile("DEV")
 public class JedisDevConfiguration {
     private static final HostAndPort HOST_AND_PORT = new HostAndPort("localhost", 30000);
 

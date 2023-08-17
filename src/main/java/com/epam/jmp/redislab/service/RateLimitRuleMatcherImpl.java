@@ -6,7 +6,6 @@ import io.github.bucket4j.Bandwidth;
 import io.github.bucket4j.Refill;
 
 import java.time.Duration;
-import java.util.Set;
 
 public enum RateLimitRuleMatcherImpl implements RateLimitRuleMatcher {
     DEFAULT {
